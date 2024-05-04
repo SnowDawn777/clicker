@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Любви</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        #score {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #clickHeart {
+            font-size: 180px; /* Увеличиваем размер сердца в пять раз */
+            cursor: pointer;
+            color: red; /* Устанавливаем красный цвет */
+            transition: all 0.2s; /* Добавляем плавное изменение размера */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="gameTitle">Игра Любви</h1>
+        <p>Кликай на сердечко, чтобы подтвердить свою любовь!</p>
+        <p id="score">Очки: 0</p>
+        <span id="clickHeart">&#x2764;</span>
+    </div>
+
+    <script>
+        let score = 0;
+
+        const scoreDisplay = document.getElementById("score");
+        const clickHeart = document.getElementById("clickHeart");
+        const gameTitle = document.getElementById("gameTitle");
+
+        clickHeart.addEventListener("click", () => {
+            score++;
+            scoreDisplay.textContent = "Очки: " + score;
+            clickHeart.style.fontSize = "360px"; // Увеличиваем размер сердца в пять раз
+            gameTitle.textContent = "Я тебя люблю!"; // Изменяем заголовок на "Я тебя люблю!"
+            setTimeout(() => {
+                clickHeart.style.fontSize = "180px"; // Возвращаем исходный размер после нажатия
+                gameTitle.textContent = "Игра Любви"; // Возвращаем изначальный заголовок
+            }, 500); // Через 0.5 секунды
+        });
+    </script>
+</body>
+</html>
+
